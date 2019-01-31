@@ -1,0 +1,13 @@
+<nav>
+    <ul class="nav-list">
+        <!-- 下面的activeclass是根据页面跳转新增的class名 -->
+        <router-link
+            v-for="nav in navs"
+            tag="li"
+            :to="{name:nav.name}"
+            activeClass="active"
+        >
+            {{nav.text}}
+        </router-link>
+    </ul>
+</nav>
