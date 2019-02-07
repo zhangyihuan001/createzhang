@@ -1,0 +1,6 @@
+export const HOME_INIT="HOME_INIT"
+export const TIME_INIT="TIME_INIT"
+export const GOODS_INIT="GOODS_INIT"
+export const SPIN_INIT="SPIN_INIT"
+export const DETAIL_INIT="DETAIL_INIT"
+export const NUM_INIT="NUM_INIT"

@@ -1,42 +1,58 @@
-let Hwp=require("html-webpack-plugin")
-let Etp=require("extract-text-webpack-plugin")
+let Hwp = require("html-webpack-plugin")
+let webpack=require("webpack")
+let Ext=require("extract-text-webpack-plugin")
 
-module.exports={
-    entry:__dirname+"/src/main.js",
-    output:{
-        path:__dirname+"/dist/",
-        filename:"app.js"
+module.exports = {
+    entry : __dirname + "/src/main.js",
+    output : {
+        path : __dirname + "/dist/",
+        filename : "app.js",
+        publicPath:"/"
     },
-    devServer:{
-        contentBase:__dirname+"/dist/",
-        port:3000,
-        inline:true,
-        proxy:{
-            "/zhuiszhu":{
-                target:"http://39.105.136.190:3000"
+    devtool : "source-map",
+    devServer : {
+        contentBase : __dirname + "/dist/",
+        port : 3000,
+        inline : true,
+        historyApiFallback:true,
+        disableHostCheck:true,
+        publicPath:"/",
+        proxy : {
+            "/goodslist" : {
+                target : "http://cooc.fun:4200"
             }
         }
     },
-    devtool:"source-map",
-    resolve:{
-        alias:{
-            "vue":"vue/dist/vue.js"
-        }        
-    },
-    module:{
-        rules:[
-            {test:/\.css$/,loader:Etp.extract("css-loader")},
-            {test:/\.less$/,loader:Etp.extract("css-loader!less-loader")},
-            {test:/\.html$/,loader:"string-loader"},
-            {test:/\.js$/,exclude:/node_modules/,loader:"babel-loader"}
+    module : {
+        rules : [
+            {test : /\.css$/ , loader : Ext.extract("css-loader")},
+            {test : /\.less$/ , loader : Ext.extract("css-loader!less-loader")},
+            {test : /\.js$/, exclude : /node_modules/ , loader : "babel-loader"},
+            {
+                test:/\.(png|jepg|gif)$/i,
+                use:[
+                    {
+                        loader:"url-loader",
+                        options:{
+                            limit:21000,
+                            name:"[path][name].[ext]",
+                            outputPath:"images/",
+                            publicPath:"dist/"
+                        }
+                    }
+                ]
+            }
         ]
     },
-    plugins:[
+    plugins : [
         new Hwp({
-            template:"src/index.html",
-            filename:"index.html",
-            inject:true
+            template : "index.html",
+            filename : "index.html",
+            inject : true
         }),
-        new Etp("app.css")
+        new webpack.ProvidePlugin({
+            React:"react"
+        }),
+        new Ext("app.css")
     ]
 }

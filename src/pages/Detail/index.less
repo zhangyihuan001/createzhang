@@ -1,0 +1,109 @@
+.detailPage{
+    width: 100%;
+    margin-bottom: 20px;
+    .detailDiv{
+        .headerDt{
+            text-indent: 20px;
+            height: 45px;
+            line-height: 45px;
+            color: #aaa;
+        }
+        .goodsDetail{
+            padding: 20px 30px 0 20px;
+            border: 1px solid #aaa;
+            .detailImg{
+                width: 400px;
+                height:auto;
+                border: 1px solid #aaa;
+                float: left;
+                margin-right: 20px;
+                // img{
+                //     width: 100%;
+                //     height:auto;
+                // }
+            }
+            .msgBox{               
+                overflow: hidden;
+                // height: 400px;
+                margin-bottom: 15px;
+                .detailName{
+                    margin-top: 20px;
+                    font-size: 30px;
+                    color: #000;
+                }
+                .detailID{
+                    margin-top: 12px;
+                    font-size: 22px;
+                    color: #656565;
+                    margin-bottom: 10px;
+                }
+                .detailInfo{
+                    font-size: 14px;
+                    color: #d70c19;
+                    border-bottom:1px dashed #000;
+                    padding-bottom: 12px;
+                }
+                .detailPrice{
+                    margin-top: 15px;
+                    color: #555;
+                    span{
+                        margin-left: 5px;
+                        font-size: 28px;
+                        color: #d70c19
+                    }
+                    del{
+                        margin: 0 20px;
+                        font-size: 20px;
+                    }
+                }
+                .detailText{
+                    font-size: 24px;
+                    color: #666;
+                    padding-bottom: 10px;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                    border-bottom:1px dashed #000;
+                }
+                .checkNum{
+                    .minus1,.plus1{
+                        display: inline-block;
+                        width: 15px;
+                        height: 15px;
+                        line-height: 13px;
+                        color: #666;
+                        background-color: #f2f2f2;
+                        border: #ccc 1px solid;
+                        cursor: pointer;
+                    }
+                    .inputNum1{
+                        display: inline-block;
+                        width: 34px;
+                        height: 20px;
+                        border: #ccc 1px solid;
+                        margin: 0 3px;
+                        vertical-align: middle;
+                        text-align: center;
+                    }
+                }
+                .buy,.addshop{
+                    margin-top: 20px;
+                    margin-left: 30px;
+                    width: 200px;
+                    height: 60px;
+                    line-height: 60px;
+                    display: inline-block;
+                    text-align: center;
+                    font-size: 24px;
+                    color: #fff;
+                    border: 2px solid #d70c19;
+                    background-color: #E62A37;
+                    border-radius: 20px;
+                    &:hover{
+                        background-color: rgba(26, 224, 148, 0.829);
+                        border: 2px solid rgba(26, 224, 148, 0.829);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,12 +1,7 @@
-import Vue from "vue"
+
+import {render} from "react-dom"
+import "antd/dist/antd.css"
+import { AppRouter } from "./AppRouter";
 import "./style/base.less"
 
-import App from "./App"
-import router from "./router"
-
-new Vue({
-    el:"#app",
-    components:{App},
-    template:`<App />`,
-    router
-})
+render(<AppRouter />,document.getElementById("app"))
